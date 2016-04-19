@@ -13,8 +13,16 @@
 
 @charset "utf-8";
 /* CSS Document */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100,400,700);
+
 @import "fontawesome/font-awesome.min.css";
+
+
+html, body {
+	font-family:"Roboto", sans-serif;
+}
 
 
 .ui-btn, label.ui-btn {
@@ -31,6 +39,11 @@ img.tfq-logo {
 		color:#fff;
 		
 }
+
+.detail-content {
+		 border-size:3px !important;
+	}	
+	
 #loaderspin {
 background-image:url("../images/loader.svg"); 
 width:30px;
@@ -69,6 +82,17 @@ height:30px;
     margin-right: 6px;
 }
 /**************/
+
+#allCountries li{
+	background-color:rgba(204,0,9,0.9) !important;
+	background-image:url("../images/icons-svg/carat-d-white.svg");
+	background-repeat:no-repeat;
+	background-position:center right 10px;
+	display:block;
+}
+
+
+
 
 .page-header {
     background-image: url("../images/tfq-logo.svg");
@@ -184,8 +208,8 @@ height:30px;
 }
 
 .detail-header {
-	background:rgba(204,0,9,0.9);
-	border:0px;
+	background:rgba(204,0,9,0.9) !important;
+	border:0px !important;
 }
 
 .country-detail-header {
@@ -246,6 +270,16 @@ a {
 	.detail-content {
 		font-size:12pt;
 	}		
+}
+
+#footer {
+	background-color: rgba(204, 0, 9, 0);
+    border-color: transparent;
+	font-weight:100;
+}
+
+.footer-text {
+	font-weight:100;
 }
 
 .country-list-container {

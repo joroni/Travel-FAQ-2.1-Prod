@@ -17,6 +17,14 @@ appUI.blocked = false;
 appUI.slideCountries = function() {
 	if (appUI.blocked) return;
 	$("#listPanel").panel("toggle");
+	/*var TheDivider = $('#allCountries a');
+	var li = TheDivider.next(':not(#allCountries a)');
+	li = li.next(':not(#allCountries a)').hide();*/
+	//$("#allCountries li").hide();
+	//(':not(.ui-li-divider)')
+	
+	
+	
 	//$("#allCountries .listDivider").show();
 	
 	
@@ -26,6 +34,8 @@ appUI.slideCountries = function() {
 appUI.slideOptions = function() {
 	if (appUI.blocked) return;
 	$("#optionsPanel").panel("toggle");
+	
+	
 	
 }
 
@@ -67,9 +77,9 @@ appUI.setupDetailsHolder = function() {
 	var html = '';
 
 	if (config.tabletMode) {
-		html += ('<ul data-role="listview" data-inset="true" data-theme="b" data-collapsed="true">');
+		html += ('<ul data-role="listview" data-inset="true" data-theme="b">');
 		for (var i in config.detailLabels) {
-			html+='<li data-role="list-divider" class="listDivider" data-collapsed="true">';
+			html+='<li data-role="list-divider" data-collapsed="true">';
 			html+= '<div class="detail-header"><img src="images/icons/' + config.detailLabels[i].icon + '" class="detail-icon">' + config.detailLabels[i].text + '</div>';
 			html+='</li>';
 			
@@ -82,7 +92,7 @@ appUI.setupDetailsHolder = function() {
 	} else {
 		html+='<div data-role="collapsible-set" data-inset="true" data-theme="b" style="padding:0px;">';
 		for (var i in config.detailLabels) {
-			html+='<div data-role="collapsible" data-collapsed="true">';
+			html+='<div data-role="collapsible">';
 			html+='<h3><img src="images/icons/' + config.detailLabels[i].icon + '" class="detail-icon">' + config.detailLabels[i].text + '</h3>';
 			html+='<p class="detail-item" id="' + config.detailLabels[i].id + '"></p>';
 			html+='</div>';
@@ -97,14 +107,23 @@ appUI.setupDetailsHolder = function() {
 appUI.leftHeaderButtonClick = function() {
 	if (appUI.isLandscape() && config.tabletMode) {
 		appUI.gotoCurrentLocation();
-		$	
+		appUI.collapseList();
 	} else {
 		appUI.slideCountries();
+		appUI.collapseList();
 		
 	
 		
 	}
 }
+
+
+appUI.collapseList =  function() {
+	if ($("#allCountries a").is(":hidden")) {
+		return;
+	}
+}
+
 
 appUI.isLandscape = function() {
 	//return true;
@@ -131,6 +150,7 @@ appUI.arrangeScreenLayout = function() {
 		
 	} else {
 		appUI.switchToPortrait();
+		$("#allCountries a").show();
 		//$("#allCountries li").hide();
 	}
 	appUI.positionListFilter();	
@@ -148,7 +168,7 @@ appUI.switchToLandscape = function() {
 	//$("#allCountries").show();
 	appUI.resizeContent();
 	appUI.resizeCountryList();	
-	$("#allCountries li").hide();
+	//$("#allCountries li").show();
 		
 	
 }
@@ -381,12 +401,14 @@ appUI.populateCountriesAll = function() {
 				
 				
 				
-				var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();
+				//var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();
 				
-				//var iconPath =  config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();				
+				var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();				
 				//if (!localFileExists(iconPath) || localFileExists(iconPath)) {
 					
 			if (!localFileExists(iconPath)) {
+					//iconPath = config.defaultIconPath;
+					/* SIDE BAR'S ICON */
 					iconPath = config.defaultIconPath;
 				}
 				icon.src = iconPath;			
@@ -414,6 +436,7 @@ appUI.populateCountriesAll = function() {
 			list.listview({
 				autodividersSelector: function(li) {
 					return $(li).attr('region');
+					//$(li).attr('collapsible');
 					//$("li").hide();
 					
 				}
@@ -421,7 +444,8 @@ appUI.populateCountriesAll = function() {
 			
 			appUI.clearCountryFilter();
 			appUI.positionListFilter();						
-			list.listview("refresh");															
+			list.listview("refresh");	
+			//listview.attr("collapsible");															
 			appUI.resizeContent();
 			appUI.resizeCountryList();
 		}				
@@ -437,11 +461,14 @@ appUI.positionListFilter = function() {
 	if (config.tabletMode && appUI.isLandscape()) {
 		$("#listFilterLS").show();
 		$("#listFilterLS").append($(".ui-filterable").detach());
-		$("#allCountries").css("padding-top","20px");				
+		$("#allCountries").css("padding-top","20px");
+		//$("#allCountries li").attr("collapsible");				
 	} else {
 		$("#listFilter").show();
 		$("#listFilter").append($(".ui-filterable").detach());
 		$("#allCountries").css("padding-top","0px");
+		
+		//$("#allCountries li").attr("collapsible");
 		
 	}
 }
@@ -461,11 +488,23 @@ appUI.populateCountryDetails = function(countryCode) {
 			if (pf && pf=="Android") mapShowURI = "geo:0,0?q=" + config.mapCoords1Key;
 			if (pf && pf=="Android") mapDirURI = "https://maps.google.com/?q=" + config.mapCoords2Key + "+to+" + config.mapCoords1Key;
 
-			var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			//var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			
+			//var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();
+			
+			var imgPath = config.localImageFolderPath2 + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			
+			//var imgPath2 = config.localImageFolderPath2 + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			
+			
 			
 			if (!localFileExists(imgPath)) {				
-				imgPath = config.defaultIconPath;
+				imgPath = config.defaultIconPath2;
+				
+				//imgPath = config.defaultIconPath;
+				//alert(imgPath);
 			} 
+			
 			
 			$("#selected_country_header").show();
 			
@@ -496,7 +535,7 @@ appUI.populateCountryDetails = function(countryCode) {
 			
 			var officeLoc = '';
 			var locStyle1 = 'border:none;';
-			var locStyle2 = locStyle1 + 'border-bottom:1px solid #c0c0c0;';
+			var locStyle2 = locStyle1 + 'border-bottom:0px solid #c0c0c0;';
 			for (var i in ol) {				
 				var locStyle = i==(ol.length-1) ? locStyle1 : locStyle2;
 				officeLoc += '<div style="' + locStyle + '">' + autoLink(ol[i]);
@@ -509,11 +548,12 @@ appUI.populateCountryDetails = function(countryCode) {
 							mapDirLink = mapDirLink.replace(config.mapCoords2Key, geocoding.currentLocation);
 						}
 					}
-					
+					<!--<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">location</button>-->
 					officeLoc +='<div class="ui-show-map-container">';
-					officeLoc +='<a href="#" onclick="openExtLink(\'' + mapLink + '\')">[Show Map]</a>';
+					
+					officeLoc +='<button href="#" class="ui-btn ui-shadow ui-corner-all  ui-btn-icon-left ui-icon-location ui-btn-inline" onclick="openExtLink(\'' + mapLink + '\')">View Map</button>';
 					if (mapDirLink) {
-						officeLoc +='&nbsp;&nbsp;&nbsp;<a href="#" onclick="openExtLink(\'' +  mapDirLink + '\')">[Get Directions]</a>';
+						officeLoc +='&nbsp;&nbsp;&nbsp;<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-navigation ui-btn-inline" onclick="openExtLink(\'' +  mapDirLink + '\')">Navigate</button>';
 					}
 					officeLoc +='</div>';
 				}	
@@ -522,7 +562,7 @@ appUI.populateCountryDetails = function(countryCode) {
 			
 						
 			//$("#officeloc").html('<div class="detail-content">'+autoLink(localData[0].officeloc)+'</div>');			
-			$("#officeloc").html('<div class="detail-content">'+officeLoc+'</div>');			
+			$("#officeloc").html('<div class="detail-content" style="border: none;">'+officeLoc+'</div>');			
 			$("#kometrics").html('<div class="detail-content">'+autoLink(localData[0].metric)+'</div>');			
 			$("#usefulinfo").html('<div class="detail-content">'+autoLink(localData[0].info)+'</div>');			
 			$("#prefhotel").html('<div class="detail-content">'+autoLink(localData[0].hotel)+'</div>');			

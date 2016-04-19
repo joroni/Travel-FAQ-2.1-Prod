@@ -50,12 +50,10 @@ config.mapCoords1Key = '<latlng_1>';
 config.mapCoords2Key = '<latlng_2>';
 
 
-//config.defaultIconPath = 'images/icons/flags/'+ code.toLowerCase() + '.png?' + Math.random();
-//config.defaultIconPathStatic = 'images/icons/flags/'+ code.toLowerCase() + '.png?';
-//config.localImageFolderPathStatic = "images/icons/flags';
 
 config.defaultIconPath = 'images/icons/default.png';
 config.localImageFolderPath = 'flags';
+config.localImageFolderPath2 = 'images/icons/flags'; /* HACK localized for sidebar */
 config.fileSystemRootFolder = '';
 
 
