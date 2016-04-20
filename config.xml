@@ -7,19 +7,32 @@
 	<!--
       This allows your app to load assets from all *.phongap.com domains
     -->
+	<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ko.travelfaq" versionCode="10" version="2.1.0">
+	<!-- versionCode is optional and Android only -->
+	<name>Travel FAQ 2.1</name>
+	<description>TCCC Travel FAQ app</description>
+	<author href="http://icokecontent.chinacloudapp.cn" email="support@chinacloudapp.com">GSS Manila COE</author>
+	<!--
+      This allows your app to load assets from all *.phongap.com domains
+    -->
 	<access origin="http://icokecontent.chinacloudapp.cn/store/travelfaq" subdomains="true" />
 	<content src="index.html" />
 	<preference name="permissions" value="none" />
 	<preference name="orientation" value="portrait" />
 	<preference name="phonegap-version" value="3.4.0" />
 	<preference name="target-device" value="universal" />
-	<preference name="fullscreen" value="false" />
-    <preference name="webviewbounce" value="false" />
+	<preference name="fullscreen" value="true" />
+	<preference name="webviewbounce" value="false" />
 	<preference name="UIWebViewBounce" value="false" />
 	<preference name="DisallowOverscroll" value="true" />
+	<preference name="StatusBarOverlaysWebView" value="false"/>
+	<preference name="StatusBarBackgroundColor" value="#A7A7A7"/>
+	<preference name="StatusBarStyle" value="blacktranslucent" />
+	
+	
 	<preference name="prerendered-icon" value="true" />
 	<preference name="stay-in-webview" value="false" />
-	<preference name="ios-statusbarstyle" value="black-opaque" />
+	<!--<preference name="ios-statusbarstyle" value="black-opaque" />-->
 	<preference name="detect-data-types" value="true" />
 	<preference name="exit-on-suspend" value="false" />
 	<preference name="show-splash-screen-spinner" value="true" />
@@ -28,6 +41,7 @@
 	<preference name="android-minSdkVersion" value="14" />
 	<preference name="android-installLocation" value="auto" />
 	<gap:plugin name="org.apache.cordova.battery-status" />
+	<gap:plugin name="org.apache.cordova.statusbar" />
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.media-capture" />
 	<gap:plugin name="org.apache.cordova.console" />
@@ -46,6 +60,7 @@
 	<gap:plugin name="org.apache.cordova.splashscreen" />
 	<gap:plugin name="org.apache.cordova.vibration" />
 	<icon src="icon.png" />
+	
 	<icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
 	<icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
 	<icon src="www/res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />

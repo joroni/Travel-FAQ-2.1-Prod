@@ -9,13 +9,18 @@
     <preference name="phonegap-version" value="3.4.0" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
-   <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
 	<preference name="UIWebViewBounce" value="false" />
 	<preference name="DisallowOverscroll" value="true" />
+	
+	<preference name="StatusBarOverlaysWebView" value="false"/>
+	<preference name="StatusBarBackgroundColor" value="#A7A7A7"/>
+	<preference name="StatusBarStyle" value="blacktranslucent" />
+
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <!--<preference name="ios-statusbarstyle" value="black-opaque" />-->
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="false" />
@@ -25,6 +30,8 @@
     <preference name="android-installLocation" value="auto" />
 	
     <gap:plugin name="org.apache.cordova.battery-status" />
+	<gap:plugin name="org.apache.cordova.statusbar" />
+	
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
     <gap:plugin name="org.apache.cordova.console" />
@@ -42,6 +49,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
+	
+
 	
     <icon src="res/icon/icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png" />
