@@ -46,6 +46,9 @@ appUI.popAbout = function() {
 
 appUI.initialize = function() {	
 	
+	$( "#updatePopupDialog").enhanceWithin().popup({history:false});
+	$( "#updatePopupDialog" ).popup('close');
+	
 	$( "#updateProgressDialog").enhanceWithin().popup({history:false});
 	$( "#updateProgressDialog" ).popup('close');	
 	
@@ -506,6 +509,7 @@ appUI.populateCountryDetails = function(countryCode) {
 			} 
 			
 			
+			
 			$("#selected_country_header").show();
 			
 			$("#country_flag").css("background-image","url('" + imgPath + "')");
@@ -691,6 +695,7 @@ appUI.setUserScreen = function() {
 }
 
 appUI.gotoCurrentLocation = function() {
+	
 	if (!navigator.geolocation) {
 		return;
 	}

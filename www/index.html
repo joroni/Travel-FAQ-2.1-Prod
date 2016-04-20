@@ -51,7 +51,7 @@
 			<div data-role="header" data-position="fixed" data-theme="b" id="header"  data-tap-toggle="false">        
 				<!-- the coca-cola logo -->
 			 <div class="page-header" id="titlebar"></div>
-             <!--<div class="ui-navbar top-ui-navbar">-->
+             <div class="ui-navbar top-ui-navbar ui-corner-all">
 				<a class="nav-icon ui-btn ui-btn-left ui-icon-grid ui-btn-icon-notext ui-corner-all" onclick="appUI.leftHeaderButtonClick()" data-icon="grid" data-iconpos="notext" data-direction="reverse" id="leftHeaderButton">Countries</a>
 				<a class="nav-icon ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all ui-btn-right" href="#optionsPanel" data-icon="gear" data-iconpos="notext">Options</a>            
 				
@@ -63,7 +63,7 @@
 					<div class="ui-block-c" align="right"></div>
 				</div>  
                 
-                <!--</div>   -->              
+                </div>               
 			</div>
 			
 			<!-- content area, dynamic -->
@@ -113,16 +113,21 @@
 			</div>    
 			<!-- options panel -->
 			<div data-role="panel" id="optionsPanel" data-position="right" data-display="overlay" data-dismissible="true" class="options-panel" data-position-fixed="true">
+            
 				<div data-role="header" data-theme="b">            	
-					<h4>Options</h4>                
+					<h4>OPTIONS</h4>                
 					<!-- the line below is hidden from UI. it is here just to align the same button to the right -->
-					<a class="nav-icon" href="#optionsPanel" data-icon="arrow-r" data-iconpos="notext" style="display:none;">Options</a>
-					<a class="nav-icon" href="#optionsPanel" data-icon="arrow-r" data-iconpos="notext" data-direction="reverse">Options</a>
+                    <div class="ui-navbar ui-corner-all">
+					<a class="ui-btn ui-btn-left ui-icon-carat-r ui-btn-icon-notext ui-corner-all" href="#optionsPanel" data-icon="carat-r" data-iconpos="notext" data-direction="reverse">Options</a>
+					<a class="nav-icon ui-btn ui-btn-left ui-icon-arrow-r ui-btn-icon-notext ui-corner-all" href="#optionsPanel" data-icon="arrow-r" data-iconpos="notext" data-direction="reverse" style="display:none;">Options</a>
 				</div>
+                </div>
 				<div data-role="content" class="options-panel-content">
+                
+                
 					<ul data-role="listview" id="popupMenuItems">
-						<li data-icon="false"><a data-transition="flip" onClick="appUI.closeMenu()" href="javascript:appUI.initiateDataUpdate();">Update data from server...</a></li>            
-						<li data-icon="false"><a data-transition="flip" onClick="appUI.closeMenu();appUI.popAbout();" href="#">About...</a></li>
+						<li data-icon="true"><a data-transition="flip" class="ui-btn ui-shadow ui-icon-cloud ui-btn-icon-right" data-icon="cloud"  onClick="appUI.closeMenu()" href="javascript:appUI.initiateDataUpdate();">Update...</a></li>            
+						<li data-icon="true"><a data-transition="flip" class="ui-btn ui-shadow ui-icon-info ui-btn-icon-right" data-icon="info" onClick="appUI.closeMenu();appUI.popAbout();" href="#">About...</a></li>
 						<!-- <li data-icon="false"><a data-transition="flip" onClick="appUI.closeMenu();appUI.confirmExit();" href="#">Exit...</a></li> -->
 					</ul>
 				</div>         
@@ -131,9 +136,12 @@
 			<!-- list panel -->
 			<div data-role="panel" id="listPanel" data-position="left" data-display="overlay" data-dismissible="true" class="options-panel" data-position-fixed="true">
 				<div data-role="header" data-theme="b">
-					<a class="nav-icon" href="#listPanel" data-icon="arrow-l" data-iconpos="notext">Close</a>
-					<a class="nav-icon" href="#" onclick="appUI.gotoCurrentLocation();" data-icon="location" data-iconpos="notext">Current Location</a>
-					<h4>REGIONS</h4>        					
+                <h4>REGIONS</h4> 
+                <div class="ui-navbar ui-corner-all">
+					<a class="nav-icon ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext ui-corner-all" href="#listPanel" data-icon="carat-l" data-iconpos="notext">Close</a>
+					<a class="nav-icon ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all" href="#" onclick="appUI.gotoCurrentLocation();" data-icon="location" data-iconpos="notext">Current Location</a>
+                    </div>
+					       					
 				</div>  
                 <div id="listFilter" style="display:none;padding:0px;margin:0px;"></div>
 				<div class="country-list-holder-portrait" id="listContainer">

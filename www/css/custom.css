@@ -24,9 +24,36 @@ html, body {
 	font-family:"Roboto", sans-serif;
 }
 
-
-.ui-btn, label.ui-btn {
+/*
+#allCountries li, #allCountries li li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+*/
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
     border-style: solid;
+	
+}
+
+
+div#details.detail-area div.ui-collapsible-set.ui-group-theme-b.ui-corner-all div.ui-collapsible.ui-collapsible-inset.ui-corner-all.ui-collapsible-themed-content.ui-collapsible-collapsed {
+	border:none;
+}
+
+.ui-collapsible-inset .ui-collapsible-heading .ui-btn {
+    border:1px solid rgba(255,255,255,0.75);
+	margin-top:2px;
+}
+
+.ui-btn, label.ui-btn, .nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-btn-icon-notext.ui-corner-all{
+    border-style: solid;
+    border-width: 2px;
+}
+
+nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-icon-carat-r.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-left.ui-icon-carat-l.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-right.ui-icon-location.ui-btn-icon-notext.ui-corner-all {
+	top:20px;
+	border-style: solid;
     border-width: 2px;
 }
 
@@ -48,6 +75,15 @@ img.tfq-logo {
 background-image:url("../images/loader.svg"); 
 width:30px;
 height:30px;
+}
+
+.ui-header {
+    height: 50px;
+    left: 0;
+    right: 0;
+	padding-top:10px;
+    width: 100%;
+    z-index: 1000;
 }
 
 .ui-header-fixed {
@@ -107,7 +143,7 @@ height:30px;
  
     max-width: 100%;
     position: relative;
-	top:-25px;
+	top:-40px;
   
 }
 
