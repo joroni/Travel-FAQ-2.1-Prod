@@ -72,7 +72,12 @@ appUI.initialize = function() {
 	
 	appUI.setupDetailsHolder();
 	
-	appUI.resizeContent();		
+	appUI.resizeContent();	
+	
+			
+	$(function(){
+		   $('select').attr('role-data', 'collapsible');
+		});	
 }
 
 appUI.setupDetailsHolder = function() {
@@ -110,19 +115,28 @@ appUI.setupDetailsHolder = function() {
 appUI.leftHeaderButtonClick = function() {
 	if (appUI.isLandscape() && config.tabletMode) {
 		appUI.gotoCurrentLocation();
-		appUI.collapseList();
+		//appUI.collapseList();
 	} else {
 		appUI.slideCountries();
-		appUI.collapseList();
+		//appUI.collapseList();
 		
 	
 		
 	}
 }
 
+/*
+appUI.collapseList =  function() {
+	if ($("#allCountries a").is(":hidden")) {
+		//$("#allCountries a").show();
+		return;
+	}
+}
+*/
 
 appUI.collapseList =  function() {
 	if ($("#allCountries a").is(":hidden")) {
+		//$("#allCountries a").show();
 		return;
 	}
 }
@@ -144,10 +158,11 @@ appUI.arrangeScreenLayout = function() {
 			appUI.switchToLandscape();
 			$("#allCountries a").show();
 			
+			
 		} else {
 			//portrait
 			appUI.switchToPortrait();
-			$("#allCountries a").show();	
+			$("#allCountries a").show();
 			//$("#allCountries li").hide();
 		}
 		
@@ -160,15 +175,16 @@ appUI.arrangeScreenLayout = function() {
 }
 
 appUI.switchToLandscape = function() {
-	
+	//$("#status-bar").addClass("hidden");
 	$("#listPanelLandscape").append($("#listContainer").detach());
 	$("#leftHeaderButton").addClass("ui-icon-location");
 	$("#leftHeaderButton").removeClass("ui-icon-grid");
 	$("#listPanelLandscapeHolder").css("width","30%");
+	
 	$("#contentHolder").css("width","70%");	
 	$("#listPanelLandscapeHolder").show();
 	$("#listPanel").hide();
-	//$("#allCountries").show();
+	
 	appUI.resizeContent();
 	appUI.resizeCountryList();	
 	//$("#allCountries li").show();
@@ -177,7 +193,8 @@ appUI.switchToLandscape = function() {
 }
 
 appUI.switchToPortrait = function() {
-	
+	$("#status-bar").show();
+	//alert('sb');
 	$("#listPanel").append($("#listContainer").detach());
 	$("#leftHeaderButton").addClass("ui-icon-grid");
 	$("#leftHeaderButton").removeClass("ui-icon-location");
@@ -189,7 +206,7 @@ appUI.switchToPortrait = function() {
 	
 	appUI.resizeContent();
 	appUI.resizeCountryList();
-	$("#allCountries li").hide();	
+	//$("#allCountries li").hide();	
 	//$("#allCountries li:not(:first-child)").hide();
 	//$("#allCountries li.next(:first-child)").hide();
 	
@@ -715,3 +732,5 @@ appUI.gotoCurrentLocation = function() {
 		}
 	);	
 }
+
+
