@@ -15,7 +15,7 @@
 	<preference name="DisallowOverscroll" value="true" />
 	
 	<preference name="StatusBarOverlaysWebView" value="false"/>
-	<preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
+	<preference name="StatusBarBackgroundColor" value="#333333"/>
 	<preference name="StatusBarStyle" value="black-opaque" />
 
     <preference name="prerendered-icon" value="true" />
