@@ -1,27 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
-        xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.ko.travelfaq"
-        versionCode = "21" 
-        version     = "2.1.0" >
-
-    <!-- versionCode is optional and Android only -->
-
-    <name>Travel FAQ</name>
-
-    <description>
-        TCCC Travel FAQ app.
-    </description>
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ko.travelfaq" versionCode="21" version="2.1.0">
+	<!-- versionCode is optional and Android only -->
+	<name>Travel FAQ</name>
+	<description>TCCC Travel FAQ app</description>
+	<author href="http://icokecontent.chinacloudapp.cn" email="support@chinacloudapp.com">GSS Manila COE</author>
 	
-	<author href="http://icokecontent.chinacloudapp.cn" email="support@chinacloudapp.com">
-	GSS Manila COE
-	</author>
-
-
-</widget>
-
-
-
 	<!--
       This allows your app to load assets from all *.phongap.com domains
     -->
