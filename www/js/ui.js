@@ -338,8 +338,8 @@ appUI.downloadFlags = function(finishCallback) {
 			} catch(err) {}	
 					
 			folder = fs.root.toURL() + '/' + parent.name;
-			//if (pf=='Android') folder = cordova.file.externalApplicationStorageDirectory + '/' + parent.name ;
-			if (pf=='Android') folder = cordova.file.applicationStorageDirectory + '/' + parent.name ;
+			if (pf=='Android') folder = cordova.file.externalApplicationStorageDirectory + '/' + parent.name ;
+			//if (pf=='Android') folder = cordova.file.applicationStorageDirectory + '/' + parent.name ;
 			
 			localStore.getData("SELECT code", null, null, function(localData) {
 				if (localData.length>0) {
@@ -424,13 +424,13 @@ appUI.populateCountriesAll = function() {
 				
 				var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();
 				
-				//var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();				
+				var iconPathStatic =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();				
 				//if (!localFileExists(iconPath) || localFileExists(iconPath)) {
 					
 			if (!localFileExists(iconPath)) {
 					//iconPath = config.defaultIconPath;
 					/* SIDE BAR'S ICON */
-					iconPath = config.defaultIconPath;
+					iconPath = iconPathStatic;
 				}
 				icon.src = iconPath;			
 				icon.style.verticalAlign="middle";
