@@ -338,7 +338,8 @@ appUI.downloadFlags = function(finishCallback) {
 			} catch(err) {}	
 					
 			folder = fs.root.toURL() + '/' + parent.name;
-			if (pf=='Android') folder = cordova.file.externalApplicationStorageDirectory + '/' + parent.name ;
+			//if (pf=='Android') folder = cordova.file.externalApplicationStorageDirectory + '/' + parent.name ;
+			if (pf=='Android') folder = cordova.file.applicationStorageDirectory + '/' + parent.name ;
 			
 			localStore.getData("SELECT code", null, null, function(localData) {
 				if (localData.length>0) {
