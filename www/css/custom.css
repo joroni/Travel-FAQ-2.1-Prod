@@ -244,6 +244,7 @@ height:30px;
 	background-repeat:no-repeat;
 	padding:0px;
 	border: none;
+	padding-bottom:0px !important;
 }
 
 .content-table {
