@@ -1,13 +1,13 @@
 /**
 * Author,email :     Aldrin Rasdas , arasdas@coca-cola.com
 * Date Create  :     April, 2014
-* Description  :     Contains methods/functions that deal mainly with User Interface
+* Description  :     Contains config values (or some variables that set and read by othe JS files
 *
 * REVISION HISTORY
 *
-* Author,email :
-* Date Revised :
-* Description  :
+* Author,email :	John Raymund Niconi, niconi@coca-cola.com
+* Date Revised :	April, 2016
+* Description  :	UI enhancments, geolocation fix, side menu collapsible
 *
 **/
 var appUI = new Object();
@@ -421,9 +421,9 @@ appUI.populateCountriesAll = function() {
 				
 				
 				
-				//var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();
+				var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();
 				
-				var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();				
+				//var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();				
 				//if (!localFileExists(iconPath) || localFileExists(iconPath)) {
 					
 			if (!localFileExists(iconPath)) {
@@ -508,20 +508,20 @@ appUI.populateCountryDetails = function(countryCode) {
 			if (pf && pf=="Android") mapShowURI = "geo:0,0?q=" + config.mapCoords1Key;
 			if (pf && pf=="Android") mapDirURI = "https://maps.google.com/?q=" + config.mapCoords2Key + "+to+" + config.mapCoords1Key;
 
-			//var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
 			//var iconPath =  config.localImageFolderPath2 + '/' + code.toLowerCase() + ".png?" + Math.random();
 			
-			var imgPath = config.localImageFolderPath2 + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			//var imgPath = config.localImageFolderPath2 + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
 			//var imgPath2 = config.localImageFolderPath2 + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
 			
 			
 			if (!localFileExists(imgPath)) {				
-				imgPath = config.defaultIconPath2;
+				//imgPath = config.defaultIconPath2;
 				
-				//imgPath = config.defaultIconPath;
+				imgPath = config.defaultIconPath;
 				//alert(imgPath);
 			} 
 			

@@ -5,9 +5,9 @@
 *
 * REVISION HISTORY
 *
-* Author,email :
-* Date Revised :
-* Description  :
+* Author,email :	John Raymund Niconi, niconi@coca-cola.com
+* Date Revised :	April, 2016
+* Description  :	UI enhancments, geolocation fix, side menu collapsible
 *
 **/
 
@@ -23,7 +23,7 @@ config.checkTabletMode = function() {
 }
 
 config.appTitle = "Travel FAQ";
-config.appInternalVersion = "2.1";
+config.appInternalVersion = "2.1.2";
 config.tabletMode = config.checkTabletMode();//config.getDeviceType();
 config.defaultCountryCode = 'CN';
 config.updateAvailableMessage = 'New version of data is available for download.\n\nKindly sync with server to get the latest Travel FAQ data.';
@@ -38,7 +38,7 @@ config.localDBCountryTable = 'country_detail';
 config.remoteServerAddress = "http://icokecontent.chinacloudapp.cn/store/travelfaq/";
 config.remoteDataFileName = "TravelFAQData.xml";
 config.remoteDataFlagsFolder = "flags";
-config.remoteConnectTimeout = 5000;
+config.remoteConnectTimeout = 10000;
 
 config.geoLatSearchKey = '<latitude>';
 config.geoLngSearchKey = '<longitude>';
@@ -52,8 +52,9 @@ config.mapCoords2Key = '<latlng_2>';
 
 
 config.defaultIconPath = 'images/icons/default.png';
-config.localImageFolderPath = 'flags';
-config.localImageFolderPath2 = 'images/icons/flags'; /* HACK localized for sidebar */
+//config.localImageFolderPath = 'flags';
+config.localImageFolderPath = 'images/icons/flags'; /* HACK localized for sidebar */
+//config.localImageFolderPath2 = 'images/icons/flags'; /* HACK localized for sidebar */
 config.fileSystemRootFolder = '';
 
 
